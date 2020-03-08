@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
 import VueRouter from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
 import TriviaGame from './components/TriviaGame.vue'
 import GameMenu from './components/GameMenu.vue'
 import GamePlay from './components/GamePlay.vue'
@@ -24,7 +23,6 @@ require('./scss/main.scss');
 Vue.config.productionTip = false
 
 const routes = [
-  { path: '/home', component: HelloWorld },
   { path: '/trivia', component: TriviaGame},
   { path: '/gamemenu', component: GameMenu},
   { path: '/gameplay', component: GamePlay},

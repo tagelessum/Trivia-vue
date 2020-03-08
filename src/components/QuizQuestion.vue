@@ -1,11 +1,20 @@
 <template>
     <div class="recipe-item">
+
+        <h1>{{Id + 1}}</h1>
         <div v-html="quizQuestion.question" class="box">
         </div>
-        <b-button size="lg" variant="outline-primary" v-on:click="onclick" v-html="quizQuestion.incorrect_answers[0]">
-        </b-button>
-        <b-button size="lg" variant="outline-primary ml-3" v-on:click="onclick" v-html="quizQuestion.correct_answer">
-        </b-button>
+
+         <div class="button" variant=""
+          v-html="quizQuestion.correct_answer"
+          @click="onclickCorrect(quizQuestion, quizQuestion.correct_answer,Id +1)">
+         </div>
+         
+        <div 
+         class="button"
+         v-html="quizQuestion.incorrect_answers[0]"
+         @click="onclickInCorrect(quizQuestion,quizQuestion.incorrect_answers[0],Id +1)">
+        </div>
     </div>
 </template>
 
@@ -14,14 +23,27 @@
 export default {
       props: {
         quizQuestion: {
-            required: true
+            required: true,
+            type: Object
         },
-        goNextQuestion: Function
+        Id: {
+            required: true,
+            type: Number
+        }
     },
     methods: {
-        onclick() {
-            this.$emit('button-clicked')
-        }
+        onclickCorrect(q,a,i) {
+            this.$emit('selectedCorrect', q);
+            this.$emit('choosenAnswer', a); 
+            this.$emit('choosenAnswerID', i); 
+        },
+        onclickInCorrect(q,a,i) {
+            this.$emit('button-clicked');
+            this.$emit('selectedWrong', q);
+            this.$emit('choosenAnswer', a); 
+            this.$emit('choosenAnswerID', i); 
+        },
+
     }
 }
 </script>
