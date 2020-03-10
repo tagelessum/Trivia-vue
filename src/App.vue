@@ -37,6 +37,9 @@ export default {
   text-align: center;
   /* color: #2c3e50; */
   min-height: 100vh;
+  background-image: url("https://firebasestorage.googleapis.com/v0/b/jquerypost.appspot.com/o/person-on-a-bridge-near-a-lake-747964.jpg?alt=media&token=5e2f4fd2-de2b-4444-8a05-464f183df65e");
+  background-repeat: no-repeat, repeat;
+  background-size: cover;
 }
 
 /* nav {

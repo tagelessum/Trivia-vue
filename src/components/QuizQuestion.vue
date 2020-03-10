@@ -1,19 +1,21 @@
 <template>
     <div class="recipe-item">
-
-        <h1>{{Id + 1}}</h1>
-        <div v-html="quizQuestion.question" class="box">
+        <h1>Question: {{Id + 1}}</h1>
+        <div
+            v-html="quizQuestion.question"
+            class="box">
         </div>
 
-         <div class="button" variant=""
-          v-html="quizQuestion.correct_answer"
-          @click="onclickCorrect(quizQuestion, quizQuestion.correct_answer,Id +1)">
+         <div
+            class="button"
+            v-html="quizQuestion.correct_answer"
+            @click="onclickCorrect(quizQuestion, quizQuestion.correct_answer,Id +1)">
          </div>
          
         <div 
-         class="button"
-         v-html="quizQuestion.incorrect_answers[0]"
-         @click="onclickInCorrect(quizQuestion,quizQuestion.incorrect_answers[0],Id +1)">
+            class="button"
+            v-html="quizQuestion.incorrect_answers[0]"
+            @click="onclickInCorrect(quizQuestion,quizQuestion.incorrect_answers[0],Id +1)">
         </div>
     </div>
 </template>
@@ -32,10 +34,10 @@ export default {
         }
     },
     methods: {
-        onclickCorrect(q,a,i) {
-            this.$emit('selectedCorrect', q);
-            this.$emit('choosenAnswer', a); 
-            this.$emit('choosenAnswerID', i); 
+        onclickCorrect(question,answer,id) {
+            this.$emit('selectedCorrect', question);
+            this.$emit('choosenAnswer', answer); 
+            this.$emit('choosenAnswerID', id); 
         },
         onclickInCorrect(q,a,i) {
             this.$emit('button-clicked');
